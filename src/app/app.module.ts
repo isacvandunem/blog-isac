@@ -8,6 +8,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PostComponent } from './post/post.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoaderComponent } from './loader/loader.component';
+import { FullPostComponent } from './full-post/full-post.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { LoaderComponent } from './loader/loader.component';
     PostsListComponent,
     NavBarComponent,
     PostComponent,
-    LoaderComponent
+    LoaderComponent,
+    FullPostComponent
   ],
   imports: [
     BrowserModule,
