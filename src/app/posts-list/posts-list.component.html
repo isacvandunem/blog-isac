@@ -1,3 +1,7 @@
-<div *ngFor="let post of posts">
-    <app-post [post]="post"></app-post>
+<app-loader *ngIf="loading"></app-loader>
+<div *ngIf="!loading">
+    <div *ngFor="let post of posts">
+        <app-post [post]="post"></app-post>
+    </div>
+    <div *ngIf="posts.length === 0">No posts found.</div>
 </div>
