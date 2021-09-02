@@ -18,6 +18,8 @@ export class PostsListComponent implements OnInit {
     this.apiService.getPosts().subscribe(posts => {
       this.posts = posts;
       this.loading = false;
+    }, error => {
+      this.loading = false;
     });
   }
 }
