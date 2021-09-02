@@ -11,6 +11,7 @@
         <div>
             <app-comment *ngFor="let comment of comments" [comment]="comment"></app-comment>
             <div *ngIf="comments.length === 0">No comments found</div>
+            <app-add-comment></app-add-comment>
         </div>
     </div>
     <app-loader *ngIf="loadingComments"></app-loader>

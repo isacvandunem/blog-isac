@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoaderComponent } from './loader/loader.component';
 import { FullPostComponent } from './full-post/full-post.component';
 import { CommentComponent } from './comment/comment.component';
+import { AddCommentComponent } from './add-comment/add-comment.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CommentComponent } from './comment/comment.component';
     PostComponent,
     LoaderComponent,
     FullPostComponent,
-    CommentComponent
+    CommentComponent,
+    AddCommentComponent
   ],
   imports: [
     BrowserModule,
