@@ -13,7 +13,14 @@ export class APIService {
         return this.http.get<Post[]>(environment.apiBaseUrl + "/posts").pipe(
             map((data: any[]) =>
                 data.map((item: any) => 
-                    new Post(item.id, item.title, item.author, item.slug, item.description, item.content)
+                    new Post(
+                        item.id, 
+                        item.title, 
+                        item.author, 
+                        new Date(item.publish_date), 
+                        item.slug, 
+                        item.description, 
+                        item.content)
                 )
             )
         );
@@ -22,7 +29,14 @@ export class APIService {
     public getPost(postId: number): Observable<Post> {
         return this.http.get<Post>(environment.apiBaseUrl + "/posts/" + postId).pipe(
             map((item: any) =>
-                new Post(item.id, item.title, item.author, item.slug, item.description, item.content)
+                new Post(
+                    item.id, 
+                    item.title, 
+                    item.author, 
+                    new Date(item.publish_date), 
+                    item.slug, 
+                    item.description, 
+                    item.content)
             )
         );
     }

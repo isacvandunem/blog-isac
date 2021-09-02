@@ -1,7 +1,8 @@
-<div class="card" style="width: 18rem;">
+<div class="card m-4 post" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">{{post.title}}</h5>
+      <div class="author">by {{post.author}} on {{post.publishDate.toLocaleDateString()}}</div>
       <p class="card-text">{{post.description}}</p>
-      <a [routerLink]="['/posts/', post.id]" class="btn btn-primary">Open</a>
+      <a [routerLink]="['/posts/', post.id]" class="btn btn-primary">Read more</a>
     </div>
 </div>

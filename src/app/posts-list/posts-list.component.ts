@@ -16,7 +16,8 @@ export class PostsListComponent implements OnInit {
   ngOnInit(): void {
     this.loading = true;
     this.apiService.getPosts().subscribe(posts => {
-      this.posts = posts;
+      posts.sort((a, b) => b.publishDate.getTime() - a.publishDate.getTime());
+      this.posts = posts;      
       this.loading = false;
     }, error => {
       this.loading = false;

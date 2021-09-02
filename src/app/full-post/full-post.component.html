@@ -1,4 +1,6 @@
 <div *ngIf="post">
-    <h2 class="text-center m-5">{{post.title}}</h2>
+    <h1 class="text-center m-5">{{post.title}}</h1>
+    <div>{{post.author}} on {{post.publishDate}}</div>
+    <div [innerHTML]="post.content"></div>
 </div>
 <app-loader *ngIf="loading"></app-loader>
