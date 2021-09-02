@@ -1,6 +1,18 @@
 <div *ngIf="post">
-    <h1 class="text-center m-5">{{post.title}}</h1>
-    <div>{{post.author}} on {{post.publishDate}}</div>
+    <h1 class="text-center m-4">{{post.title}}</h1>
+    <div class="author-date">
+        <span>{{post.author}}</span> on 
+        <span class="date">{{post.publishDate.toLocaleDateString()}}</span>
+    </div>
     <div [innerHTML]="post.content"></div>
+    <h2 class="text-center m-4">Comments</h2>
+
+    <div class="comments-list" *ngIf="comments">
+        <div>
+            <app-comment *ngFor="let comment of comments" [comment]="comment"></app-comment>
+            <div *ngIf="comments.length === 0">No comments found</div>
+        </div>
+    </div>
+    <app-loader *ngIf="loadingComments"></app-loader>
 </div>
 <app-loader *ngIf="loading"></app-loader>

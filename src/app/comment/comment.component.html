@@ -1,9 +1,11 @@
-<div>
-    <div class="user">
-        <img src="/assets/images/user.png" alt="user avatar">{{ comment.user }}
-    </div>
-    <div class="text">
-        <p>{{comment.content}}</p> 
-        <span class="date">{{comment.date.toLocaleDateString()}}</span>
+<div class="card m-4 post" style="width: 28rem;">
+    <div class="card-body">
+        <div class="user">
+            <img src="/assets/images/user.png" alt="user avatar">{{ comment.user }}
+        </div>
+        <div class="text">
+            <p>{{comment.content}}</p> 
+            <span class="date">{{comment.date.toLocaleDateString()}}</span>
+        </div>
     </div>
 </div>

@@ -1,7 +1,20 @@
+@import "../shared.scss";
+
 .author {
-    color: grey;
+    color: $darkGray;
+    font-size: 0.90rem;
+    margin-bottom: 10px;
 }
 
 .post {
     min-height: 250px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-text {
+    flex-grow: 1;
 }
