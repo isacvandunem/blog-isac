@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { APIService } from '../services/APIService';
 import { Comment } from '../comment/comment.model';
+import { ToastComponent } from '../toast/toast.component';
 
 @Component({
   selector: 'app-add-comment',
@@ -9,6 +10,7 @@ import { Comment } from '../comment/comment.model';
   styleUrls: ['./add-comment.component.scss']
 })
 export class AddCommentComponent implements OnInit {
+  @ViewChild('toast') toast!: ToastComponent;
   @Input("postId") postId!: number;
   @Output("commentAdded") commentAdded = new EventEmitter<Comment>();
   public addingComment: boolean = false;
@@ -38,6 +40,7 @@ export class AddCommentComponent implements OnInit {
       this.commentAdded.emit(comment);
     }, error => {
       this.addingComment = false;
+      this.toast.show("Error", "Error loading comments. Please try again later");
     });
   }
 }
