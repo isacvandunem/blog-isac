@@ -12,6 +12,7 @@ import { FullPostComponent } from './full-post/full-post.component';
 import { CommentComponent } from './comment/comment.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToastComponent } from './toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoaderComponent,
     FullPostComponent,
     CommentComponent,
-    AddCommentComponent
+    AddCommentComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,
