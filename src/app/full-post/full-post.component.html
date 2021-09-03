@@ -5,13 +5,13 @@
         <span class="date">{{post.publishDate.toLocaleDateString()}}</span>
     </div>
     <div [innerHTML]="post.content"></div>
-    <h2 class="text-center m-4">Comments</h2>
 
+    <h2 class="text-center m-4">Comments</h2>
     <div class="comments-list" *ngIf="comments">
         <div>
             <app-comment *ngFor="let comment of comments" [comment]="comment"></app-comment>
             <div *ngIf="comments.length === 0">No comments found</div>
-            <app-add-comment></app-add-comment>
+            <app-add-comment [postId]="post.id" (commentAdded)="addCommentToList($event)"></app-add-comment>
         </div>
     </div>
     <app-loader *ngIf="loadingComments"></app-loader>

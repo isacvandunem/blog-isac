@@ -39,4 +39,7 @@ export class FullPostComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addCommentToList(comment: Comment): void {
+    this.comments?.push(comment);
+  }
 }

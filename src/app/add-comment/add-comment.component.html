@@ -1,5 +1,5 @@
 <h2>Join the Discussion</h2>
-<form formGroup=[commentForm] (ngSubmit)="onSubmit()">
+<form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
     <div class="mb-3">
         <label for="comment" class="form-label">Comment:</label>
         <textarea 
@@ -7,7 +7,8 @@
             id="comment" 
             aria-describedby="comment" 
             placeholder="Your comment"
-            formControlName="comment"></textarea>
+            formControlName="comment"
+            required></textarea>
     </div>
     <div class="mb-3">
         <label for="name" class="form-label">Name:</label>
@@ -17,9 +18,17 @@
             id="name" 
             aria-describedby="name" 
             placeholder="Your name"
-            formControlName="name">
+            formControlName="name"
+            required>
     </div>
     <div>
-        <button class="btn btn-primary">Post Comment</button>
+        <button type="submit" class="btn btn-primary" [disabled]="addingComment || !commentForm.valid">
+            <span 
+                *ngIf="addingComment" 
+                class="spinner-border spinner-border-sm" 
+                role="status" 
+                aria-hidden="true"></span>
+            Post Comment
+        </button>
     </div>
 </form>
