@@ -5,3 +5,7 @@ input.ng-dirty.ng-invalid, textarea.ng-dirty.ng-invalid {
 form {
     margin-bottom: 30px;
 }
+
+.invalid-feedback {
+    display: block;
+}

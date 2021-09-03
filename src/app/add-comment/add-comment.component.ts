@@ -17,9 +17,11 @@ export class AddCommentComponent implements OnInit {
   constructor(private apiService: APIService) {
     this.commentForm = new FormGroup({
       comment: new FormControl(null, Validators.required),
-      name: new FormControl(null, Validators.required)
+      name: new FormControl(null, [Validators.required, Validators.minLength(3)])
     });
   }
+
+  get name() { return this.commentForm.get('name'); }
 
   ngOnInit(): void {
   }
