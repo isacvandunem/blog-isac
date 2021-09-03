@@ -1,10 +1,10 @@
 <div *ngIf="post">
-    <h1 class="text-center m-4">{{post.title}}</h1>
+    <h1 class="text-center m-4 title">{{post.title}}</h1>
     <div class="author-date">
-        <span>{{post.author}}</span> on 
+        <span class="author">{{post.author}}</span> on 
         <span class="date">{{post.publishDate.toLocaleDateString()}}</span>
     </div>
-    <div [innerHTML]="post.content"></div>
+    <div class="content" [innerHTML]="post.content"></div>
 
     <h2 class="text-center m-4">Comments</h2>
     <div class="comments-list" *ngIf="comments">
