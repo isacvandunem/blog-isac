@@ -7,7 +7,7 @@ import { Comment } from './comment.model';
   styleUrls: ['./comment.component.scss']
 })
 export class CommentComponent implements OnInit {
-  @Input("comment") comment!: Comment;
+  @Input() comment!: Comment;
 
   constructor() { }
 

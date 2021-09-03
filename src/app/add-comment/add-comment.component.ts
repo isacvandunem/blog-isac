@@ -11,8 +11,8 @@ import { ToastComponent } from '../toast/toast.component';
 })
 export class AddCommentComponent implements OnInit {
   @ViewChild('toast') toast!: ToastComponent;
-  @Input("postId") postId!: number;
-  @Output("commentAdded") commentAdded = new EventEmitter<Comment>();
+  @Input() postId!: number;
+  @Output() commentAdded = new EventEmitter<Comment>();
   public addingComment: boolean = false;
   public commentForm: FormGroup;
   
@@ -26,6 +26,7 @@ export class AddCommentComponent implements OnInit {
   get name() { return this.commentForm.get('name'); }
 
   ngOnInit(): void {
+    // do nothing.
   }
 
   /**

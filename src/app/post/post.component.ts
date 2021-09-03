@@ -7,7 +7,7 @@ import { Post } from './post.model';
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit {
-  @Input('post') post!: Post;
+  @Input() post!: Post;
 
   constructor() { }
 

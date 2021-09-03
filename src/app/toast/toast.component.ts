@@ -7,8 +7,8 @@ const defaultCloseDelay = 10000;
   styleUrls: ['./toast.component.scss']
 })
 export class ToastComponent implements OnInit {
-  @Input("title") title: string = "";
-  @Input("message") message: string = "";
+  @Input() title: string = "";
+  @Input() message: string = "";
   visible: boolean = false;
   timer: NodeJS.Timeout | undefined;
   
