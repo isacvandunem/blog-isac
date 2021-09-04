@@ -5,24 +5,23 @@ import { LoaderComponent } from '../loader/loader.component';
 import { ToastComponent } from '../toast/toast.component';
 
 describe('PostsListComponent', () => {
-  let component: PostsListComponent;
-  let fixture: ComponentFixture<PostsListComponent>;
+    let component: PostsListComponent;
+    let fixture: ComponentFixture<PostsListComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ PostsListComponent, LoaderComponent, ToastComponent ],
-      imports: [ HttpClientTestingModule ]
-    })
-    .compileComponents();
-  });
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            declarations: [PostsListComponent, LoaderComponent, ToastComponent],
+            imports: [HttpClientTestingModule]
+        }).compileComponents();
+    });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PostsListComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(PostsListComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

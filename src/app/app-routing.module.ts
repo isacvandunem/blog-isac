@@ -4,12 +4,12 @@ import { FullPostComponent } from './full-post/full-post.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
 
 const routes: Routes = [
-  { path: '', component: PostsListComponent },
-  { path: 'posts/:id', component: FullPostComponent },
+    { path: '', component: PostsListComponent },
+    { path: 'posts/:id', component: FullPostComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }

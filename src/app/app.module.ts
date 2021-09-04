@@ -15,25 +15,25 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastComponent } from './toast/toast.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PostsListComponent,
-    NavBarComponent,
-    PostComponent,
-    LoaderComponent,
-    FullPostComponent,
-    CommentComponent,
-    AddCommentComponent,
-    ToastComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        PostsListComponent,
+        NavBarComponent,
+        PostComponent,
+        LoaderComponent,
+        FullPostComponent,
+        CommentComponent,
+        AddCommentComponent,
+        ToastComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
