@@ -1,4 +1,4 @@
-<div *ngIf="post">
+<article *ngIf="post">
     <h1 class="text-center m-4 title">{{post.title}}</h1>
     <div class="author-date">
         <span class="author">{{post.author}}</span> on 
@@ -7,14 +7,14 @@
     <div class="content" [innerHTML]="post.content"></div>
 
     <h2 class="text-center m-4">Comments</h2>
-    <div class="comments-list" *ngIf="comments">
+    <section class="comments-list" *ngIf="comments">
         <div>
             <app-comment *ngFor="let comment of comments" [comment]="comment"></app-comment>
             <div *ngIf="comments.length === 0">No comments found</div>
             <app-add-comment [postId]="post.id" (commentAdded)="addCommentToList($event)"></app-add-comment>
         </div>
-    </div>
+    </section>
     <app-loader *ngIf="loadingComments"></app-loader>
-</div>
+</article>
 <app-loader *ngIf="loading"></app-loader>
 <app-toast #toast></app-toast>
