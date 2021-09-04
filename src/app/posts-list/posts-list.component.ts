@@ -16,6 +16,13 @@ export class PostsListComponent implements OnInit {
     constructor(private apiService: APIService) { }
 
     ngOnInit(): void {
+        this.loadAndSortPosts();
+    }
+
+    /**
+     * Loads all posts from the API and sorts them by newest first
+     */
+    loadAndSortPosts(): void {
         this.loading = true;
         this.apiService.getPosts().subscribe(posts => {
             posts.sort((a, b) => b.publishDate.getTime() - a.publishDate.getTime());

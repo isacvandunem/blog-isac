@@ -42,6 +42,10 @@ export class FullPostComponent implements OnInit {
     ngOnInit(): void {
     }
 
+    /**
+     * Adds a comment to the current post comments list
+     * @param comment The comment to be added
+     */
     addCommentToList(comment: Comment): void {
         if (!this.comments) {
             this.comments = [];

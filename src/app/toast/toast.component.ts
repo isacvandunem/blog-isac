@@ -17,6 +17,9 @@ export class ToastComponent implements OnInit {
     ngOnInit(): void {
     }
 
+    /**
+     * Makes the toast not visible
+     */
     close(): void {
         this.visible = false;
     }

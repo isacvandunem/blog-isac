@@ -26,7 +26,6 @@ export class AddCommentComponent implements OnInit {
     get name() { return this.commentForm.get('name'); }
 
     ngOnInit(): void {
-
     }
 
     /**
