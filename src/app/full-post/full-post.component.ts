@@ -43,6 +43,9 @@ export class FullPostComponent implements OnInit {
   }
 
   addCommentToList(comment: Comment): void {
+    if(!this.comments){
+      this.comments = [];
+    }
     this.comments?.push(comment);
   }
 }

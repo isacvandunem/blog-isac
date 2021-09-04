@@ -1,6 +1,6 @@
 <div *ngIf="visible" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
-        <strong class="me-auto">{{title}}</strong>
+        <strong class="me-auto toast-title">{{title}}</strong>
         <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
     </div>
     <div class="toast-body">{{message}}</div>
