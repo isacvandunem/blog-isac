@@ -38,6 +38,8 @@ export class AddCommentComponent implements OnInit {
         this.apiService.addComment(this.postId, commentText, commenterName).subscribe(comment => {
             this.addingComment = false;
             this.commentAdded.emit(comment);
+            this.commentForm.controls['comment'].setValue('');
+            this.commentForm.controls['name'].setValue('');
         }, error => {
             this.addingComment = false;
             this.toast.show("Error", "Error loading comments. Please try again later");
