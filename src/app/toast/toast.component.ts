@@ -1,18 +1,24 @@
-import { Component, Input, OnInit } from '@angular/core';
-const defaultCloseDelay = 10000;
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+const defaultCloseDelay = 15000;
 
 @Component({
     selector: 'app-toast',
     templateUrl: './toast.component.html',
     styleUrls: ['./toast.component.scss']
 })
-export class ToastComponent implements OnInit {
+export class ToastComponent implements OnInit, OnDestroy {
     @Input() title: string = "";
     @Input() message: string = "";
     visible: boolean = false;
     timer: NodeJS.Timeout | undefined;
 
     constructor() { }
+
+    ngOnDestroy(): void {
+        if(this.timer) {
+            clearTimeout(this.timer);
+        }
+    }
 
     ngOnInit(): void {
     }
@@ -35,7 +41,7 @@ export class ToastComponent implements OnInit {
         this.visible = true;
 
         if (this.timer) {
-            clearInterval(this.timer);
+            clearTimeout(this.timer);
         }
 
         this.timer = setTimeout(() => {
