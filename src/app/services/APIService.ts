@@ -5,6 +5,8 @@ import { Post } from "../post/post.model";
 import { Comment } from "../comment/comment.model";
 import { map } from "rxjs/operators";
 import { environment } from "src/environments/environment";
+import { APIPost } from "../APIModels/api-post.model";
+import { APIComment } from "../APIModels/api-comment.model";
 
 @Injectable({ providedIn: 'root' })
 export class APIService {
@@ -14,18 +16,9 @@ export class APIService {
      * Gets all the posts from the API
      */
     public getPosts(): Observable<Post[]> {
-        return this.http.get<Post[]>(environment.apiBaseUrl + "/posts").pipe(
-            map((data: any[]) =>
-                data.map((item: any) =>
-                    new Post(
-                        item.id,
-                        item.title,
-                        item.author,
-                        new Date(item.publish_date),
-                        item.slug,
-                        item.description,
-                        item.content)
-                )
+        return this.http.get<APIPost[]>(environment.apiBaseUrl + "/posts").pipe(
+            map((data: APIPost[]) => 
+                data.map((post: APIPost) => Post.fromAPI(post))
             )
         );
     }
@@ -36,17 +29,8 @@ export class APIService {
      * @returns The post
      */
     public getPost(postId: number): Observable<Post> {
-        return this.http.get<Post>(environment.apiBaseUrl + "/posts/" + postId).pipe(
-            map((item: any) =>
-                new Post(
-                    item.id,
-                    item.title,
-                    item.author,
-                    new Date(item.publish_date),
-                    item.slug,
-                    item.description,
-                    item.content)
-            )
+        return this.http.get<APIPost>(environment.apiBaseUrl + "/posts/" + postId).pipe(
+            map((post: APIPost) => Post.fromAPI(post))
         );
     }
 
@@ -56,17 +40,9 @@ export class APIService {
      */
     public getComments(postId: number): Observable<Comment[]> {
         const url = `${environment.apiBaseUrl}/posts/${postId}/comments`;
-        return this.http.get<Comment[]>(url).pipe(
-            map((data: any[]) =>
-                data.map((item: any) =>
-                    new Comment(
-                        item.id,
-                        item.postId,
-                        item.parent_id,
-                        item.user,
-                        new Date(item.date),
-                        item.content)
-                )
+        return this.http.get<APIComment[]>(url).pipe(
+            map((data: APIComment[]) =>
+                data.map((comment: APIComment) => Comment.fromAPI(comment))
             )
         );
     }
@@ -82,15 +58,8 @@ export class APIService {
         const url = `${environment.apiBaseUrl}/posts/${postId}/comments`;
         const headers = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
         const body = { user, content, date: new Date().toDateString() };
-        return this.http.post<number>(url, body, headers).pipe(
-            map((item: any) => new Comment(
-                item.id,
-                item.postId,
-                item.parent_id,
-                item.user,
-                new Date(item.date),
-                item.content)
-            )
+        return this.http.post<APIComment>(url, body, headers).pipe(
+            map((comment: APIComment) => Comment.fromAPI(comment))
         );
     }
 }

@@ -1,3 +1,5 @@
+import { APIPost } from "../APIModels/api-post.model";
+
 export class Post {
     constructor(
         public id: number,
@@ -7,5 +9,16 @@ export class Post {
         public slug: string,
         public description: string,
         public content: string){
+    }
+
+    static fromAPI(post: APIPost): Post {
+        return new Post(
+            post.id,
+            post.title,
+            post.author,
+            new Date(post.publish_date),
+            post.slug,
+            post.description,
+            post.content)
     }
 }
