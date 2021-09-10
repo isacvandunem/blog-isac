@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Post } from '../post/post.model';
-import { Comment } from '../comment/comment.model';
-import { APIService } from '../services/APIService';
-import { ToastComponent } from '../toast/toast.component';
+import { Post } from '../post.model';
+import { Comment } from '../../comments/comment.model';
+import { APIService } from '../../core/services/APIService';
+import { ToastComponent } from '../../shared/toast/toast.component';
 
 @Component({
     selector: 'app-full-post',

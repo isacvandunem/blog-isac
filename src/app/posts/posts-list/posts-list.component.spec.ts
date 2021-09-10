@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { PostsListComponent } from './posts-list.component';
-import { LoaderComponent } from '../loader/loader.component';
-import { ToastComponent } from '../toast/toast.component';
+import { LoaderComponent } from '../../shared/loader/loader.component';
+import { ToastComponent } from '../../shared/toast/toast.component';
 
 describe('PostsListComponent', () => {
     let component: PostsListComponent;

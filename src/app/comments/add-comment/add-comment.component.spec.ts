@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AddCommentComponent } from './add-comment.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ToastComponent } from '../toast/toast.component';
+import { ToastComponent } from '../../shared/toast/toast.component';
 
 describe('AddCommentComponent', () => {
     let component: AddCommentComponent;

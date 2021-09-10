@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Comment } from "./comment.model";
+import { Comment } from "../comment.model";
 import { CommentComponent } from './comment.component';
 
 describe('CommentComponent', () => {

@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { PostComponent } from './post.component';
-import { Post } from './post.model';
+import { Post } from '../post.model';
 
 describe('PostComponent', () => {
     let component: PostComponent;

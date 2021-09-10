@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from "rxjs";
-import { Post } from "../post/post.model";
-import { Comment } from "../comment/comment.model";
+import { Post } from "../../posts/post.model";
+import { Comment } from "../../comments/comment.model";
 import { map } from "rxjs/operators";
 import { environment } from "src/environments/environment";
 import { APIPost } from "../APIModels/api-post.model";

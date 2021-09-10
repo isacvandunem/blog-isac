@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Post } from '../post/post.model';
-import { APIService } from '../services/APIService';
-import { ToastComponent } from '../toast/toast.component';
+import { Post } from '../post.model';
+import { APIService } from '../../core/services/APIService';
+import { ToastComponent } from '../../shared/toast/toast.component';
 
 @Component({
     selector: 'app-posts-list',

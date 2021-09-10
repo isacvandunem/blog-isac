@@ -1,9 +1,9 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Post } from '../post/post.model';
-import { Comment } from '../comment/comment.model';
-import { ToastComponent } from '../toast/toast.component';
+import { Post } from '../post.model';
+import { Comment } from '../../comments/comment.model';
+import { ToastComponent } from '../../shared/toast/toast.component';
 import { FullPostComponent } from './full-post.component';
 
 describe('FullPostComponent', () => {

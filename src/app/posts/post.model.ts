@@ -1,4 +1,4 @@
-import { APIPost } from "../APIModels/api-post.model";
+import { APIPost } from "../core/APIModels/api-post.model";
 
 export class Post {
     constructor(

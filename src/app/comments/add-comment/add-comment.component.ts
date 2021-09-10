@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { APIService } from '../services/APIService';
-import { Comment } from '../comment/comment.model';
-import { ToastComponent } from '../toast/toast.component';
+import { APIService } from '../../core/services/APIService';
+import { Comment } from '../comment.model';
+import { ToastComponent } from '../../shared/toast/toast.component';
 
 @Component({
     selector: 'app-add-comment',

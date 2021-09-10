@@ -1,4 +1,4 @@
-import { APIComment } from "../APIModels/api-comment.model";
+import { APIComment } from "../core/APIModels/api-comment.model";
 
 export class Comment {
     constructor(
