@@ -5,7 +5,7 @@
         </figure>
         <div class="text">
             <p>{{comment.content}}</p> 
-            <span class="date">{{comment.date.toLocaleDateString()}}</span>
+            <span class="date">{{comment.date | date:'yyyy-MM-dd'}}</span>
         </div>
     </div>
 </div>

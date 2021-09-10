@@ -2,7 +2,7 @@
     <h1 class="text-center m-4 title">{{post.title}}</h1>
     <div class="author-date">
         <span class="author">{{post.author}}</span> on 
-        <span class="date">{{post.publishDate.toLocaleDateString()}}</span>
+        <span class="date">{{post.publishDate | date:'yyyy-MM-dd'}}</span>
     </div>
     <div class="content" [innerHTML]="post.content"></div>
 
