@@ -17,29 +17,45 @@ export class FullPostComponent implements OnInit {
     public comments: Comment[] | undefined;
     public loadingComments: boolean = false;
 
-    constructor(private activatedRoute: ActivatedRoute, private apiService: APIService) {
-        if (activatedRoute.snapshot.params['id']) {
-            const postId = activatedRoute.snapshot.params['id'];
-            this.loading = true;
-            apiService.getPost(postId).subscribe(post => {
-                this.post = post;
-                this.loading = false;
-            }, error => {
-                this.loading = false;
-            });
+    constructor(private activatedRoute: ActivatedRoute, private apiService: APIService) {}
 
-            this.loadingComments = true;
-            apiService.getComments(postId).subscribe(comments => {
-                this.comments = comments;
-                this.loadingComments = false;
-            }, error => {
-                this.loadingComments = false;
-                this.toast.show("Error", "Error loading comments. Please try again later");
-            });
+    ngOnInit(): void {
+        if (this.activatedRoute.snapshot.params['id']) {
+            const postId = this.activatedRoute.snapshot.params['id'];
+            this.loadPost(postId);
+            this.loadComments(postId);
         }
     }
 
-    ngOnInit(): void {
+    /**
+     * Fetches the comments of a post from the API based on a given id
+     * @param postId The id of the post to get the comments
+     */
+    loadPost(postId: number): void {
+        this.loading = true;
+        this.apiService.getPost(postId).subscribe(post => {
+            this.post = post;
+            this.loading = false;
+        }, error => {
+            this.loading = false;
+            this.toast.show("Error", "Error loading post. Please try again later");
+        });
+
+    }
+
+    /**
+     * Fetches a post from the API based on a given id
+     * @param postId The id of the post to fetch
+     */
+    loadComments(postId: number): void {
+        this.loadingComments = true;
+        this.apiService.getComments(postId).subscribe(comments => {
+            this.comments = comments;
+            this.loadingComments = false;
+        }, error => {
+            this.loadingComments = false;
+            this.toast.show("Error", "Error loading comments. Please try again later");
+        });
     }
 
     /**
