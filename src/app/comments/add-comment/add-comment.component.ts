@@ -23,7 +23,9 @@ export class AddCommentComponent implements OnInit {
         });
     }
 
-    get name() { return this.commentForm.get('name'); }
+    get name() { 
+        return this.commentForm.get('name'); 
+    }
 
     ngOnInit(): void {
     }
@@ -34,12 +36,15 @@ export class AddCommentComponent implements OnInit {
     onSubmit(): void {
         const commentText = this.commentForm.value.comment;
         const commenterName = this.commentForm.value.name;
+        
         this.addingComment = true;
         this.apiService.addComment(this.postId, commentText, commenterName).subscribe(comment => {
             this.addingComment = false;
             this.commentAdded.emit(comment);
             this.commentForm.controls['comment'].setValue('');
             this.commentForm.controls['name'].setValue('');
+            this.commentForm.controls['comment'].markAsPristine();
+            this.commentForm.controls['name'].markAsPristine();
         }, error => {
             this.addingComment = false;
             this.toast.show("Error", "Error loading comments. Please try again later");

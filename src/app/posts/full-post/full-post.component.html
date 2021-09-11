@@ -11,7 +11,9 @@
         <div>
             <app-comment *ngFor="let comment of comments" [comment]="comment"></app-comment>
             <div *ngIf="comments.length === 0">No comments found</div>
-            <app-add-comment [postId]="post.id" (commentAdded)="addCommentToList($event)"></app-add-comment>
+            <app-add-comment 
+                [postId]="post.id" 
+                (commentAdded)="addCommentToList($event)"></app-add-comment>
         </div>
     </section>
     <app-loader *ngIf="loadingComments"></app-loader>
