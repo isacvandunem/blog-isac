@@ -1,9 +1,11 @@
 <h1 class="text-center m-4">Posts</h1>
 <app-loader *ngIf="loading"></app-loader>
-<div *ngIf="!loading" class="posts-grid">
-    <div *ngFor="let post of posts">
-        <app-post [post]="post"></app-post>
+<div class="flex-center-horizontal">
+    <div *ngIf="!loading" class="posts-grid">
+        <div *ngFor="let post of posts">
+            <app-post [post]="post"></app-post>
+        </div>
+        <div *ngIf="posts.length === 0">No posts found.</div>
     </div>
-    <div *ngIf="posts.length === 0">No posts found.</div>
 </div>
 <app-toast #toast></app-toast>
